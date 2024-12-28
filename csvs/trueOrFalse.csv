@@ -1,0 +1,109 @@
+Pregunta,Respuesta,Recompensa,Castigo
+"La Tierra es el tercer planeta del sistema solar.", verdadero, diamond, prision
+"El sol es un planeta.", falso, gold, lava
+"La Gran Muralla China es visible desde el espacio.", falso, food, prision
+"Las ballenas son mamíferos.", verdadero, diamond, tnt
+"El Monte Everest está en Estados Unidos.", falso, gold, zombie
+"El agua hierve a 100 grados Celsius a nivel del mar.", verdadero, gold, prision
+"El colibrí es el pájaro más grande del mundo.", falso, food, lava
+"Las abejas pueden volar hacia atrás.", verdadero, diamond, prision
+"Los diamantes son más duros que el acero.", verdadero, gold, tnt
+"Los koalas son marsupiales.", verdadero, diamond, zombie
+"La velocidad de la luz es de aproximadamente 300,000 kilómetros por segundo.", verdadero, gold, prision
+"El ser humano tiene 4 pulmones.", falso, diamond, lava
+"El agua está compuesta por hidrógeno y oxígeno.", verdadero, gold, prision
+"Las jirafas tienen cuernos.", falso, diamond, zombie
+"La temperatura promedio en la superficie de Venus es más alta que en Mercurio.", verdadero, gold, tnt
+"Las tortugas son reptiles.", verdadero, food, prision
+"Los pingüinos pueden volar.", falso, diamond, lava
+"La pirámide de Giza está en Egipto.", verdadero, gold, prision
+"El agua es más densa que el aceite.", verdadero, diamond, zombie
+"Las ranas tienen tres patas.", falso, gold, tnt
+"El canguro es un animal nativo de África.", falso, food, prision
+"Los leones viven en manadas.", verdadero, diamond, lava
+"Los delfines son mamíferos marinos.", verdadero, gold, prision
+"El chocolate es tóxico para los perros.", verdadero, diamond, zombie
+"El hielo flota en el agua.", verdadero, food, tnt
+"El océano Atlántico es el océano más grande del mundo.", falso, diamond, prision
+"El águila es el ave nacional de Estados Unidos.", verdadero, gold, lava
+"El Amazonas es el río más largo del mundo.", falso, food, zombie
+"Los camellos tienen tres patas.", falso, diamond, prision
+"El sol es más grande que la Tierra.", verdadero, gold, tnt
+"Las avestruces pueden volar.", falso, diamond, lava
+"La velocidad de la luz es la misma en todos los medios.", falso, food, prision
+"El hielo es un sólido a temperaturas bajo cero.", verdadero, diamond, zombie
+"El desierto del Sahara está en Australia.", falso, gold, prision
+"Las ballenas azules son el animal más grande que ha existido.", verdadero, diamond, tnt
+"Las moscas tienen 8 patas.", falso, food, lava
+"Los elefantes tienen colmillos.", verdadero, diamond, prision
+"Las serpientes son reptiles.", verdadero, gold, tnt
+"El chocolate blanco contiene cacao.", falso, diamond, zombie
+"Los pulpos tienen 9 cerebros.", verdadero, gold, prision
+"El ecuador pasa por África.", verdadero, diamond, tnt
+"Los tiburones son mamíferos.", falso, food, prision
+"El motor de un coche funciona con energía eléctrica.", falso, diamond, lava
+"El aguacate es una fruta.", verdadero, gold, prision
+"El Sol está a una distancia de 93 millones de kilómetros de la Tierra.", verdadero, diamond, zombie
+"Las arañas son insectos.", falso, gold, tnt
+"El diamante es el material más duro conocido por el ser humano.", verdadero, food, prision
+"Las tortugas pueden vivir en el agua y en la tierra.", verdadero, diamond, lava
+"Los humanos comparten el 98% de su ADN con los chimpancés.", verdadero, gold, prision
+"La electricidad es una forma de energía.", verdadero, diamond, zombie
+"El Mar Muerto es un lago.", verdadero, gold, tnt
+"La Luna es más grande que la Tierra.", falso, food, prision
+"El ojo humano es capaz de ver en color.", verdadero, diamond, lava
+"La tierra es plana.", falso, gold, prision
+"Las hormigas pueden levantar objetos mucho más pesados que su propio peso.", verdadero, diamond, zombie
+"Las bicicletas tienen ruedas cuadradas.", falso, gold, tnt
+"El platino es más barato que el oro.", falso, diamond, prision
+"El sonido viaja más rápido en el aire que en el agua.", falso, food, lava
+"El Monte Fuji está en Japón.", verdadero, diamond, prision
+"El ratón es un mamífero.", verdadero, gold, tnt
+"Las cebras son de color blanco con rayas negras.", falso, diamond, zombie
+"Las ballenas viven en el desierto.", falso, gold, prision
+"Los peces respiran oxígeno a través de sus branquias.", verdadero, diamond, lava
+"Las bicicletas tienen ruedas redondas.", verdadero, food, prision
+"Las vacas pueden volar.", falso, diamond, tnt
+"Las cebras son parte de la familia de los caballos.", verdadero, gold, prision
+"El Polo Norte está en el Ártico.", verdadero, diamond, zombie
+"Las estrellas fugaces son estrellas que caen del cielo.", falso, gold, tnt
+"El cuerpo humano tiene 206 huesos.", verdadero, food, prision
+"El agua pura es incolora.", verdadero, diamond, lava
+"Los árboles pueden crecer más de 100 metros de altura.", verdadero, gold, prision
+"Los ratones tienen 6 patas.", falso, diamond, tnt
+"La tierra es el cuarto planeta en el sistema solar.", falso, food, zombie
+"Las cabras pueden trepar a los árboles.", verdadero, diamond, prision
+"Las avestruces son aves que no pueden volar.", verdadero, gold, lava
+"El oro es un metal muy pesado.", verdadero, diamond, prision
+"La electricidad es un tipo de energía renovable.", falso, food, tnt
+"La luz viaja más rápido que el sonido.", verdadero, diamond, zombie
+"Las jirafas tienen manchas en su piel.", verdadero, gold, prision
+"Los pingüinos pueden volar.", falso, diamond, lava
+"Los perros tienen más huesos que los humanos.", falso, food, prision
+"Los búhos son nocturnos.", verdadero, diamond, zombie
+"El Amazonas es el bosque más grande del mundo.", verdadero, gold, tnt
+"Los leones son herbívoros.", falso, diamond, prision
+"El sol tiene aproximadamente 4.5 mil millones de años.", verdadero, food, lava
+"Las cobayas son roedores.", verdadero, diamond, prision
+"Los camellos tienen una sola joroba.", verdadero, gold, tnt
+"Las tortugas marinas pueden respirar bajo el agua.", falso, diamond, zombie
+"El oxígeno es el gas más abundante en la atmósfera.", falso, gold, prision
+"El oro es más pesado que la plata.", verdadero, diamond, tnt
+"Las orcas son ballenas.", verdadero, food, prision
+"El hierro es el metal más ligero.", falso, diamond, lava
+"La Tierra es más grande que Júpiter.", falso, gold, prision
+"Los murciélagos son mamíferos.", verdadero, diamond, zombie
+"El sol es una estrella.", verdadero, food, tnt
+"Los flamencos son rosados debido a su dieta.", verdadero, diamond, prision
+"Las tortugas pueden vivir hasta 100 años.", verdadero, gold, lava
+"Las cebras son animales que viven en los bosques.", falso, diamond, prision
+"Las tortugas pueden vivir en el agua y en la tierra.", verdadero, gold, zombie
+"El hielo es menos denso que el agua.", verdadero, diamond, tnt
+"Las vacas pueden volar.", falso, food, prision
+"Las estrellas están hechas de gas.", verdadero, diamond, lava
+"Las serpientes son mamíferos.", falso, food, tnt
+"Las ranas son reptiles.", falso, diamond, prision
+"Las vacas producen leche.", verdadero, gold, zombie
+"Los pájaros tienen plumas.", verdadero, diamond, lava
+"Las jirafas tienen cuellos largos.", verdadero, gold, prision
+"Los tomates son vegetales.", falso, diamond, tnt
