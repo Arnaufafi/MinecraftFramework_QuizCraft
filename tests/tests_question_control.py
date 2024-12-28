@@ -1,5 +1,6 @@
 import unittest
 from unittest.mock import MagicMock, patch, mock_open
+from mcpi.minecraft import Minecraft
 
 import sys
 import os
