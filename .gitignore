@@ -1,0 +1,14 @@
+# Ignorar el directorio __pycache__
+__pycache__/
+tests/__pycache__/
+
+# Ignorar otros archivos y directorios comunes
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.sqlite3
+*.env
+*.venv
+.env/
+.venv/
