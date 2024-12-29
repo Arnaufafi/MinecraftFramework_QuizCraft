@@ -3,7 +3,7 @@ import rewards
 import punishments 
 from mcpi.minecraft import Minecraft  
 # Crea una conexión con el mundo de Minecraft
-mc = Minecraft.create()
+
 
 
 class DificultQuestion(Question):
@@ -23,7 +23,8 @@ class DificultQuestion(Question):
             original_question.get_question(),
             original_question.answer,
             original_question.reward,  
-            original_question.punishment  
+            original_question.punishment,  
+            original_question.mc
         )
         self.failed_attempts = original_question.failed_attempts
 
@@ -37,10 +38,10 @@ class DificultQuestion(Question):
         # Intenta obtener la función de recompensa difícil (prefijada con "D_") desde el módulo 'rewards'
         reward_function = getattr(rewards, f"D_{self.reward}", None)
         if reward_function:
-            reward_function(player)  # Llama a la función de recompensa difícil
+            reward_function(player, self.mc)  # Llama a la función de recompensa difícil
         else:
             # Si no se encuentra la recompensa difícil, muestra un mensaje de error en el chat de Minecraft
-            mc.postToChat(f"Error: Recompensa difícil 'f D_{self.reward}' no válida.")
+            self.mc.postToChat(f"Error: Recompensa difícil 'f D_{self.reward}' no válida.")
 
     def apply_punishment(self, player):
         """
@@ -52,7 +53,7 @@ class DificultQuestion(Question):
         # Intenta obtener la función de castigo difícil (prefijada con "D_") desde el módulo 'punishments'
         punishment_function = getattr(punishments, f"D_{self.punishment}", None)
         if punishment_function:
-            punishment_function(player)  # Llama a la función de castigo difícil
+            punishment_function(player, self.mc)  # Llama a la función de castigo difícil
         else:
             # Si no se encuentra el castigo difícil, muestra un mensaje de error en el chat de Minecraft
-            mc.postToChat(f"Error: Castigo difícil 'fD_{self.punishment}' no válido.")
+            self.mc.postToChat(f"Error: Castigo difícil 'fD_{self.punishment}' no válido.")

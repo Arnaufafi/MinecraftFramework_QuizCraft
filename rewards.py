@@ -2,9 +2,8 @@
 from mcrcon import MCRcon
 from mcpi.minecraft import Minecraft
 
-mc = Minecraft.create()
 
-def spawn_item(player, item_id):
+def spawn_item(player, item_id, mc):
     """Genera un ítem como orbe en la posición del jugador."""
     pos = mc.entity.getTilePos(player)
     command = f"summon item {pos.x} {pos.y} {pos.z} {{Item:{{id:\"minecraft:{item_id}\",Count:1}}}}"
@@ -15,31 +14,31 @@ def spawn_item(player, item_id):
     except Exception as e:
         mc.postToChat(f"Error al generar el ítem: {str(e)}")
 
-def diamond(player):
+def diamond(player, mc):
     """Genera un diamante como ítem."""
-    spawn_item(player, "diamond")
+    spawn_item(player, "diamond", mc)
 
-def gold(player):
+def gold(player, mc):
     """Genera un lingote de oro como ítem."""
-    spawn_item(player, "gold_ingot")
+    spawn_item(player, "gold_ingot", mc)
 
-def food(player):
+def food(player, mc):
     """Genera comida para el jugador."""
-    spawn_item(player, "cooked_beef")
+    spawn_item(player, "cooked_beef", mc)
 
 # Versión difícil
 
-def D_diamond(player):
+def D_diamond(player, mc):
     """Genera un diamante y un bloque de diamante como recompensa difícil."""
-    spawn_item(player, "diamond")
-    spawn_item(player, "diamond_block")  # Añadir un bloque de diamante como recompensa adicional
+    spawn_item(player, "diamond", mc)
+    spawn_item(player, "diamond_block", mc)  # Añadir un bloque de diamante como recompensa adicional
 
-def D_gold(player):
+def D_gold(player, mc):
     """Genera un lingote de oro y un bloque de oro como recompensa difícil."""
-    spawn_item(player, "gold_ingot")
-    spawn_item(player, "gold_block")  # Añadir un bloque de oro como recompensa adicional
+    spawn_item(player, "gold_ingot", mc)
+    spawn_item(player, "gold_block", mc)  # Añadir un bloque de oro como recompensa adicional
 
-def D_food(player):
+def D_food(player, mc):
     """Genera comida de calidad (como una tarta) como recompensa difícil."""
-    spawn_item(player, "apple")
-    spawn_item(player, "cake")  # Añadir un pastel como recompensa adicional
+    spawn_item(player, "apple", mc)
+    spawn_item(player, "cake", mc)  # Añadir un pastel como recompensa adicional

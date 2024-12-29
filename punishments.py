@@ -3,9 +3,8 @@ from mcrcon import MCRcon
 from mcpi.minecraft import Minecraft
 import time
 
-mc = Minecraft.create()
 
-def spawn_mob(player, mob_type):
+def spawn_mob(player, mob_type, mc):
     """Invoca un mob en la posición del jugador utilizando RCON."""
     pos = mc.entity.getTilePos(player)
     command = f"summon {mob_type} {pos.x} {pos.y} {pos.z}"
@@ -16,12 +15,12 @@ def spawn_mob(player, mob_type):
     except Exception as e:
         mc.postToChat(f"Error invocando mob: {str(e)}")
 
-def lava(player):
+def lava(player, mc):
     """Coloca un bloque de lava en la posición del jugador."""
     pos = mc.entity.getTilePos(player)
     mc.setBlock(pos.x, pos.y, pos.z, 10)  # Lava en Minecraft
 
-def tnt(player):
+def tnt(player, mc):
     """Coloca TNT repetidamente durante 5 segundos en la posición del jugador y las enciende con fuego."""
     start_time = time.time()
     while time.time() - start_time < 5:
@@ -30,11 +29,11 @@ def tnt(player):
         mc.setBlock(pos.x, pos.y + 1, pos.z, 51)  # Encender TNT con fuego
         time.sleep(1)
 
-def zombie(player):
+def zombie(player, mc):
     """Invoca un zombie en la posición del jugador."""
-    spawn_mob(player, "Zombie")
+    spawn_mob(player, "Zombie", mc)
 
-def prison(player):
+def prison(player, mc):
     """Rodea al jugador con bloques de piedra y coloca un bloque de agua donde está, para que se ahogue."""
     pos = mc.entity.getTilePos(player)
 
@@ -56,7 +55,7 @@ def prison(player):
 
 # Versión difícil de los castigos
 
-def D_lava(player):
+def D_lava(player, mc):
     """Coloca un gran campo de lava alrededor del jugador como castigo difícil."""
     pos = mc.entity.getTilePos(player)
     # Colocar lava en un área más grande alrededor del jugador
@@ -64,7 +63,7 @@ def D_lava(player):
         for dz in range(-2, 3):
             mc.setBlock(pos.x + dx, pos.y, pos.z + dz, 10)  # Lava en un área 5x5
 
-def D_tnt(player):
+def D_tnt(player, mc):
     """Coloca múltiples TNT alrededor del jugador durante 10 segundos y las enciende."""
     start_time = time.time()
     while time.time() - start_time < 2:
@@ -79,15 +78,15 @@ def D_tnt(player):
         
         time.sleep(5)
 
-def D_zombie(player):
+def D_zombie(player, mc):
     """Invoca múltiples zombies alrededor del jugador como castigo difícil."""
     pos = mc.entity.getTilePos(player)
     # Invocar varios zombies en un área alrededor del jugador
     for dx in range(-2, 3):
         for dz in range(-2, 3):
-            spawn_mob(player, "Zombie")  # Invocar un zombie en las posiciones alrededor del jugador
+            spawn_mob(player, "Zombie", mc)  # Invocar un zombie en las posiciones alrededor del jugador
 
-def D_prison(player):
+def D_prison(player, mc):
     """Rodea al jugador con bloques de piedra y coloca un bloque de agua donde está, para que se ahogue."""
     pos = mc.entity.getTilePos(player)
 

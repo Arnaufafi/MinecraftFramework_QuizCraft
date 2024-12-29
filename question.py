@@ -1,11 +1,9 @@
 from mcpi.minecraft import Minecraft
 import rewards  
 import punishments  
-# Crea una conexión con el mundo de Minecraft
-mc = Minecraft.create()
 
 class Question:
-    def __init__(self, question, answer, reward, punishment):
+    def __init__(self, question, answer, reward, punishment, mc):
         """
         Constructor de la clase Question.
 
@@ -21,6 +19,7 @@ class Question:
         self.punishment = punishment  
         self.failed_attempts = 0  
         self.active = False  
+        self.mc = mc
 
     def get_question(self):
         """
@@ -55,9 +54,9 @@ class Question:
         """
         reward_function = getattr(rewards, self.reward, None)
         if reward_function:
-            reward_function(player)  # Llama a la función de recompensa
+            reward_function(player, self.mc)  # Llama a la función de recompensa
         else:
-            mc.postToChat(f"Error: Recompensa '{self.reward}' no válida.")  # Si la recompensa no es válida, muestra un mensaje de error
+           self.mc.postToChat(f"Error: Recompensa '{self.reward}' no válida.")  # Si la recompensa no es válida, muestra un mensaje de error
 
     def apply_punishment(self, player):
         """
@@ -68,9 +67,9 @@ class Question:
         """
         punishment_function = getattr(punishments, self.punishment, None)
         if punishment_function:
-            punishment_function(player)  # Llama a la función de castigo
+            punishment_function(player,self.mc)  # Llama a la función de castigo
         else:
-            mc.postToChat(f"Error: Castigo '{self.punishment}' no válido.")  # Si el castigo no es válido, muestra un mensaje de error
+            self.mc.postToChat(f"Error: Castigo '{self.punishment}' no válido.")  # Si el castigo no es válido, muestra un mensaje de error
 
     def increment_failed_attempts(self):
         """

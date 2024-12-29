@@ -6,8 +6,16 @@ from mcpi.minecraft import Minecraft
 from question import Question
 from dificultQuestion import DificultQuestion  
 
-# Conexión a Minecraft
-mc = Minecraft.create()
+
+mc = None  # No inicializamos inmediatamente
+
+# Función que obtiene la instancia de Minecraft, si no está creada aún
+def get_mc_instance():
+    global mc
+    if mc is None:
+        mc = Minecraft.create()  # Solo crea la instancia si no existe
+    return mc
+
 
 # Variables globales
 current_question = None  
@@ -28,7 +36,7 @@ def add_question(questions, question, answer, reward, punishment):
     Returns:
         list: La lista actualizada de preguntas, incluyendo la nueva pregunta.
     """
-    new_question = Question(question, answer, reward, punishment)  
+    new_question = Question(question, answer, reward, punishment,mc)  
     return questions + [new_question] 
 
 def check_answer(player, answer, current_question, questions):
@@ -108,6 +116,7 @@ def add_example_questions():
     Esto permite tener un conjunto inicial de preguntas antes de que el usuario agregue nuevas preguntas.
     """
     global questions
+    get_mc_instance()
     # Añade algunas preguntas de ejemplo al principio
     questions = add_question(questions, "¿Cuánto es 2 + 2?", "4", "diamond", "tnt")
     questions = add_question(questions, "¿Cuál es la capital de Francia?", "Paris", "gold", "zombie")
@@ -224,7 +233,7 @@ def load_questions_from_csv(message):
 
         current_directory = os.path.dirname(__file__)  # Obtiene el directorio actual
         parent_directory = os.path.dirname(current_directory)  # Obtiene el directorio padre
-        csv_path = os.path.join(parent_directory, 'scriptsPython', 'csvs', csv_file)  # Construye la ruta completa al archivo CSV
+        csv_path = os.path.join(parent_directory, 'MinecraftFramework_QuizCraft', 'csvs', csv_file)  # Construye la ruta completa al archivo CSV
 
         if os.path.exists(csv_path): 
             add_questions_from_csv(csv_path)  # Carga las preguntas desde el archivo CSV
