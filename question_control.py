@@ -36,8 +36,13 @@ def add_question(questions, question, answer, reward, punishment):
     Returns:
         list: La lista actualizada de preguntas, incluyendo la nueva pregunta.
     """
-    new_question = Question(question, answer, reward, punishment,mc)  
-    return questions + [new_question] 
+    if not all([question, answer, reward, punishment]):  # Revisa campos vacíos
+        raise ValueError("Todos los campos deben estar llenos.")
+    for q in questions:
+        if q.question == question: # Evita preguntas duplicadas
+            return questions
+    new_question = Question(question, answer, reward, punishment, mc)  
+    return questions + [new_question]
 
 def check_answer(player, answer, current_question, questions):
     """
@@ -251,18 +256,17 @@ def change_question_delay(message):
         message (str): El mensaje recibido que contiene el nuevo periodo en segundos.
     """
     try:
-        _, time_str = message.split(" ", 1)  # Extrae el tiempo del mensaje
-        new_delay = int(time_str.strip())  # Convierte el tiempo a entero
-
-        if new_delay <= 0:  
-            mc.postToChat("El tiempo debe ser mayor que cero.")
-        else:
-            global question_delay
-            question_delay = new_delay  # Actualiza el tiempo de espera entre preguntas
-            mc.postToChat(f"El tiempo entre preguntas ha sido cambiado a {question_delay} segundos.") 
-            return question_delay 
+        _, time_str = message.split(" ", 1)
+        new_delay = int(time_str.strip())
+        if new_delay <= 0:
+            raise ValueError("El tiempo debe ser mayor que cero.")  # Lanzar error
+        global question_delay
+        question_delay = new_delay
+        mc.postToChat(f"El tiempo entre preguntas ha sido cambiado a {question_delay} segundos.")
+        return question_delay
     except ValueError:
-        mc.postToChat("Formato incorrecto. Usa: !t <segundos>")  
+        mc.postToChat("Formato incorrecto. Usa: !t <segundos>")
+        raise
 
 def adjust_difficulty_command(message, increase=True):
     """

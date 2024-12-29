@@ -157,6 +157,85 @@ class TestQuestionControl(unittest.TestCase):
         mc.postToChat.assert_any_call("Para responder una pregunta activa: r <respuesta>")
         mc.postToChat.assert_any_call("Para insertar una pregunta: !q <pregunta>_<respuesta>_<recompensa>_<castigo>")
 
+ # NUEVO: Validar que no se agregan preguntas duplicadas
+    @patch('mcpi.minecraft.Minecraft.create')
+    def test_add_duplicate_question(self, mock_mc_create):
+        mock_mc_create.return_value = mc
+
+        question = "¿Cuánto es 2 + 2?"
+        answer = "4"
+        reward = "diamond"
+        punishment = "tnt"
+
+        global questions
+        questions = add_question(questions, question, answer, reward, punishment)
+        questions = add_question(questions, question, answer, reward, punishment)
+
+        self.assertEqual(len(questions), 1)  # No se debe duplicar la pregunta
+
+    # NUEVO: Verificar comportamiento con entradas vacías
+    @patch('mcpi.minecraft.Minecraft.create')
+    def test_add_question_empty_fields(self, mock_mc_create):
+        mock_mc_create.return_value = mc
+
+        question = ""
+        answer = ""
+        reward = ""
+        punishment = ""
+
+        global questions
+        with self.assertRaises(ValueError):  # Suponiendo que add_question lanza ValueError
+            questions = add_question(questions, question, answer, reward, punishment)
+
+    # NUEVO: Validar el tiempo de retraso al cambiar con un comando mal formado
+    @patch('mcpi.minecraft.Minecraft.create')
+    def test_change_question_delay_invalid(self, mock_mc_create):
+        mock_mc_create.return_value = mc
+
+        with self.assertRaises(ValueError):  # Suponiendo que change_question_delay lanza ValueError
+            change_question_delay("!t -1")
+
+    @patch('mcpi.minecraft.Minecraft.create')
+    @patch.object(Question, 'apply_reward', lambda x, y: None)  # Hacer que la función `apply_reward` no haga nada
+    def test_check_answer_correct(self, mock_mc_create):
+        mock_mc_create.return_value = mc
+
+        question = "¿Cuánto es 2 + 2?"
+        answer = "4"
+        reward = "diamond"
+        punishment = "tnt"
+
+        global questions
+        questions = add_question(questions, question, answer, reward, punishment)
+
+        player_id = 12345
+        current_question = questions[0]
+        current_question.activate()
+        result, _, _ = check_answer(player_id, answer, current_question, questions)
+
+        self.assertTrue(result)
+
+    # NUEVO: Manejo de respuestas a una pregunta inactiva
+    @patch('mcpi.minecraft.Minecraft.create')
+    @patch.object(Question, 'apply_punishment', lambda x, y: None)
+    def test_check_answer_inactive_question(self, mock_mc_create):
+        mock_mc_create.return_value = mc
+
+        question = "¿Cuánto es 2 + 2?"
+        answer = "4"
+        reward = "diamond"
+        punishment = "tnt"
+
+        global questions
+        questions = add_question(questions, question, answer, reward, punishment)
+
+        player_id = 12345
+        current_question = questions[0]  # Pregunta no activada
+
+        result, _, _ = check_answer(player_id, "4", current_question, questions)
+
+        self.assertFalse(result)  # Respuesta no debe ser aceptada si la pregunta no está activa
+        mc.postToChat.assert_called_with(f"No hay pregunta activa o el tiempo ha expirado. Espera a la siguiente.")
 
 if __name__ == "__main__":
     unittest.main()
