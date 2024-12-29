@@ -16,7 +16,7 @@ jobs:
           pip install pytest coverage codecov mcpi mcrcon
       - name: Run tests
         run: |
-          coverage run -m pytest tests/tests_question_control.py
+          coverage run -m pytest tests/
       - name: Upload coverage to Codecov
         run: |
           coverage xml
