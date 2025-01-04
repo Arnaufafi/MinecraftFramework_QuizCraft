@@ -1,2 +1,7 @@
 # MinecraftFramework_QuizCraft
 [![codecov](https://codecov.io/gh/Arnaufafi/MinecraftFramework_QuizCraft/branch/main/graph/badge.svg?token=3KARVNZ8QC)](https://codecov.io/gh/Arnaufafi/MinecraftFramework_QuizCraft)
+
+QuizCraft 1.0 es un framework de Minecraft altamente extensible, que permite la programación de hot spots tanto dentro del juego como mediante código. Su principal objetivo es ofrecer un bot completamente configurable y programable a través del chat de Minecraft, lo que permite a los jugadores adaptar su comportamiento de acuerdo a las necesidades y preferencias de cada servidor donde se implemente.
+QuizCraft facilita la creación de bots que lanzan preguntas en el chat de Minecraft, con el fin de que los jugadores respondan correctamente y obtengan recompensas que mejoren sus opciones de supervivencia o les otorguen ventajas sobre otros jugadores. En caso de responder incorrectamente, el jugador recibirá un castigo que tendrá el efecto contrario.
+El sistema incluye paquetes de preguntas que pueden ser importados directamente desde el chat de Minecraft. Además, los usuarios tienen la posibilidad de crear nuevas preguntas dentro del chat o buscar paquetes de preguntas externos, que pueden ser cargados en el sistema de archivos y activados desde el servidor de Minecraft.
+QuizCraft tiene como objetivo proporcionar una experiencia entretenida en los servidores de Minecraft, al mismo tiempo que permite impartir conocimiento sobre diversos temas.
